@@ -1,27 +1,17 @@
 {
   "name": "tree-sitter-scfg",
-  "version": "0.0.1",
   "description": "scfg grammar for tree-sitter",
-  "main": "bindings/node",
-  "keywords": [
-    "parsing",
-    "incremental"
-  ],
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "nan": "^2.12.1"
-  },
-  "devDependencies": {
-    "tree-sitter-cli": "^0.20.7"
+    "tree-sitter": "0.22.4",
+    "tree-sitter-cli": "0.24.7"
   },
   "scripts": {
-    "test": "tree-sitter test"
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter generate && time tree-sitter test",
+    "testquick": "time tree-sitter test",
+    "update-test": "tree-sitter test --update"
   },
-  "tree-sitter": [
-    {
-      "scope": "source.scfg",
-      "file-types": [
-        "scfg"
-      ]
-    }
-  ]
+  "main": "bindings/node"
 }
