@@ -1,7 +1,1 @@
-# tree-sitter generate
-/src/
-/bindings/
-/Cargo.toml
-binding.gyp
-Cargo.lock
-/target/
+node_modules/
