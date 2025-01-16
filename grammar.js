@@ -16,7 +16,7 @@ module.exports = grammar({
   rules: {
     config: ($) => repeat($._line),
 
-    _line: ($) => choice($.comment, $.directive),
+    _line: ($) => seq(optional(WSP), choice($.comment, $.directive)),
 
     comment: ($) => seq("#", repeat(VCHAR), $._newline),
 
@@ -25,7 +25,7 @@ module.exports = grammar({
         $.directive_name,
         optional($.directive_params),
         optional($.block),
-        $._newline
+        $._newline,
       ),
 
     directive_name: ($) => $.word,
